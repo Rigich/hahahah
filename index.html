@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музика на кнопці</title>
+</head>
+<body>
+    <button id="startButton">СТАРТ</button>
+    
+    <audio id="audio" src="ston.mp4" preload="auto"></audio>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const audio = document.getElementById('audio');
+
+        startButton.addEventListener('click', function() {
+            audio.play();
+        });
+    </script>
+</body>
+</html>
