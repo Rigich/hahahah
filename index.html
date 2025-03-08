@@ -7,6 +7,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -15,13 +16,20 @@
         }
 
         #startButton {
-            width: 150px; /* Розмір кнопки */
-            height: 150px;
+            width: 200px; /* Збільшений розмір кнопки */
+            height: 200px;
             border: none;
             border-radius: 50%; /* Кругла форма */
             background: url('foto.gif') no-repeat center;
             background-size: cover;
             cursor: pointer;
+        }
+
+        #designer {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #555;
+            font-family: Arial, sans-serif;
         }
     </style>
 </head>
@@ -30,13 +38,15 @@
     
     <audio id="audio" src="9326.mp3" preload="auto"></audio>
 
+    <div id="designer">Designed by rigichka</div>
+
     <script>
         const startButton = document.getElementById('startButton');
         const audio = document.getElementById('audio');
 
         startButton.addEventListener('click', function() {
             if (audio.paused) {
-                audio.currentTime = 0; // Почати з початку
+                audio.currentTime = 0;
                 audio.play();
             } else {
                 audio.pause();
