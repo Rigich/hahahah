@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Музика на кнопці</title>
     <style>
-        #startButton {
-            font-size: 40px; /* Збільшуємо розмір шрифта */
-            padding: 30px 60px; /* Збільшуємо відступи для кнопки */
-            background-color: #4CAF50; /* Колір фону кнопки */
-            color: white; /* Колір тексту */
-            border: none; /* Без обводки */
-            border-radius: 10px; /* Круглі кути */
-            cursor: pointer; /* Курсор у вигляді руки */
-            transition: background-color 0.3s ease; /* Плавний перехід кольору */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
         }
 
-        #startButton:hover {
-            background-color: #45a049; /* Зміна кольору при наведенні */
+        #startButton {
+            width: 150px; /* Розмір кнопки */
+            height: 150px;
+            border: none;
+            border-radius: 50%; /* Кругла форма */
+            background: url('foto.gif') no-repeat center;
+            background-size: cover;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <button id="startButton">СТАРТ</button>
+    <button id="startButton"></button>
     
     <audio id="audio" src="9326.mp3" preload="auto"></audio>
 
@@ -31,7 +35,12 @@
         const audio = document.getElementById('audio');
 
         startButton.addEventListener('click', function() {
-            audio.play();
+            if (audio.paused) {
+                audio.currentTime = 0; // Почати з початку
+                audio.play();
+            } else {
+                audio.pause();
+            }
         });
     </script>
 </body>
