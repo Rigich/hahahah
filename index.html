@@ -43,14 +43,28 @@
     <script>
         const startButton = document.getElementById('startButton');
         const audio = document.getElementById('audio');
+        let playCount = 0;
+        const maxPlays = 10;
 
         startButton.addEventListener('click', function() {
             if (audio.paused) {
-                audio.currentTime = 0;
-                audio.play();
+                playCount = 0; // Скидаємо лічильник повторів
+                playAudio();
             } else {
                 audio.pause();
             }
+        });
+
+        function playAudio() {
+            if (playCount < maxPlays) {
+                audio.currentTime = 0;
+                audio.play();
+                playCount++;
+            }
+        }
+
+        audio.addEventListener('ended', function() {
+            playAudio();
         });
     </script>
 </body>
